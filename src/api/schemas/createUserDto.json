@@ -1,0 +1,1 @@
+{"type":"object","required":["username","name","password","role"],"properties":{"username":{"type":"string"},"name":{"type":"string"},"password":{"type":"string"},"email":{"type":"string"},"role":{"type":"string"}},"x-readme-ref-name":"CreateUserDto"}

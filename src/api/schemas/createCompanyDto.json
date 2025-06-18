@@ -1,0 +1,1 @@
+{"type":"object","required":["name","description","startDate","responsibleName","responsibleRole"],"properties":{"name":{"type":"string"},"description":{"type":"string"},"startDate":{"type":"string","format":"date-time"},"endDate":{"type":"string","format":"date-time"},"responsibleName":{"type":"string"},"responsibleRole":{"type":"string"}},"x-readme-ref-name":"CreateCompanyDto"}
