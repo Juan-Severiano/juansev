@@ -1,21 +1,31 @@
-import { Header } from "@/components/header";
+"use client"
+
 import AboutMeSection from "../components/about-me";
 import SkillsSection from "../components/skills";
-import { mockCertifications, skills, tools } from "@/assets/skills";
+import {
+  mockProjects,
+  skills,
+  tools,
+} from "@/assets/skills";
 import CertificationsSection from "../components/certification";
 import ContactCTA from "../components/contact";
 import ProjectsSection from "../components/projects";
+import { useGetCertificates, useGetUsersUsernameUsername } from "@/api";
 
 export function HomePage() {
-  
+  const { data: projects } = { data: mockProjects };
+  const { data: certificatesData } = useGetCertificates();
+  const { data: userData } = useGetUsersUsernameUsername("Juan-Severiano");
+
+  const certificates = certificatesData?.data?.data || [];
 
   return (
     <>
       <AboutMeSection />
-      <ProjectsSection />
+      <ProjectsSection projects={projects} />
       <SkillsSection skills={skills} />
       <SkillsSection skills={tools} />
-      <CertificationsSection certifications={mockCertifications} />
+      <CertificationsSection certifications={certificates} />
       <ContactCTA />
     </>
   );

@@ -1,6 +1,14 @@
 import { HomeLayout } from "@/features/home/layout";
-import type { PropsWithChildren } from "react";
+import { QueryProvider } from "./query-provider";
 
-export default function Layout({ children }: PropsWithChildren) {
-  return <HomeLayout>{children}</HomeLayout>;
+export default function PublicLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <QueryProvider>
+      <HomeLayout>{children}</HomeLayout>
+    </QueryProvider>
+  );
 }

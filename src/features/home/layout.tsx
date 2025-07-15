@@ -7,7 +7,7 @@ export function HomeLayout({ children }: PropsWithChildren) {
     <>
       <AnimatedStars />
       <Header />
-      <section className="w-full flex items-center">
+      <section>
         <main>{children}</main>
       </section>
     </>

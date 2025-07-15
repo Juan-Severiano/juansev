@@ -1,28 +1,20 @@
-"use client"
+'use client'
 
 import { useState } from "react"
 import { Award, ExternalLink, FileText } from "lucide-react"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
-
-interface Certification {
-  name: string
-  description: string
-  image: string
-  link?: string // Link para o certificado online
-  pdf?: string // Link para o arquivo PDF
-  professor?: string // Nome do professor/instrutor
-}
+import { Certificate } from "@/api"
 
 interface CertificationsSectionProps {
-  certifications: Certification[]
+  certifications: Certificate[]
 }
 
 export default function CertificationsSection({ certifications }: CertificationsSectionProps) {
-  const [selectedCert, setSelectedCert] = useState<Certification | null>(null)
+  const [selectedCert, setSelectedCert] = useState<Certificate | null>(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
 
-  const openModal = (cert: Certification) => {
+  const openModal = (cert: Certificate) => {
     setSelectedCert(cert)
     setIsModalOpen(true)
   }
@@ -44,14 +36,10 @@ export default function CertificationsSection({ certifications }: Certifications
               onClick={() => openModal(cert)}
             >
               <div className="h-48 bg-gradient-to-br from-orange-500/20 to-red-500/20 flex items-center justify-center">
-                {cert.image ? (
-                  <img src={cert.image || "/placeholder.svg"} alt={cert.name} className="object-cover w-full h-full" />
-                ) : (
-                  <Award className="w-16 h-16 text-white/70" />
-                )}
+                <Award className="w-16 h-16 text-white/70" />
               </div>
               <div className="p-6">
-                <h3 className="text-lg font-bold mb-2 text-white">{cert.name}</h3>
+                <h3 className="text-lg font-bold mb-2 text-white">{cert.title}</h3>
                 <p className="text-gray-300 text-sm">{cert.description}</p>
               </div>
             </div>
@@ -63,33 +51,18 @@ export default function CertificationsSection({ certifications }: Certifications
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
         <DialogContent className="sm:max-w-[425px] bg-gray-900 text-white border border-white/10 rounded-lg">
           <DialogHeader>
-            <DialogTitle className="text-2xl font-bold text-white">{selectedCert?.name}</DialogTitle>
+            <DialogTitle className="text-2xl font-bold text-white">{selectedCert?.title}</DialogTitle>
             <DialogDescription className="text-gray-400">{selectedCert?.description}</DialogDescription>
           </DialogHeader>
           <div className="grid gap-4 py-4">
-            {selectedCert?.professor && (
-              <div className="flex items-center gap-2 text-gray-300">
-                <span className="font-semibold">Professor:</span> {selectedCert.professor}
-              </div>
-            )}
-            {selectedCert?.link && (
+            {selectedCert?.url && (
               <a
-                href={selectedCert.link}
+                href={selectedCert.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-blue-400 hover:underline"
               >
                 <ExternalLink className="w-4 h-4" /> Ver Certificado Online
-              </a>
-            )}
-            {selectedCert?.pdf && (
-              <a
-                href={selectedCert.pdf}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-blue-400 hover:underline"
-              >
-                <FileText className="w-4 h-4" /> Baixar PDF
               </a>
             )}
           </div>

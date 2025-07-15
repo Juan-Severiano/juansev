@@ -1,10 +1,15 @@
-"use client"
+'use client'
 
+import { User } from "@/api"
 import { Mail, Linkedin, Github } from "lucide-react"
 import Link from "next/link"
 
-export default function ContactCTA() {
-  const githubUsername = "Juan-Severiano"
+interface ContactCTAProps {
+  user?: User
+}
+
+export default function ContactCTA({ user }: ContactCTAProps) {
+  const githubUsername = user?.username || "Juan-Severiano"
   const githubProfilePic = `https://github.com/${githubUsername}.png`
 
   return (
@@ -15,11 +20,11 @@ export default function ContactCTA() {
           <div className="flex items-center bg-white/10 backdrop-blur-sm rounded-full p-2 pr-4 shadow-lg border border-white/20">
             <img
               src={githubProfilePic || "/placeholder.svg"}
-              alt="Juan Severiano"
+              alt={user?.name || "Juan Severiano"}
               className="w-12 h-12 rounded-full mr-3 border-2 border-purple-500"
             />
             <div className="text-left">
-              <span className="block text-lg font-semibold text-white">Juan Severiano</span>
+              <span className="block text-lg font-semibold text-white">{user?.name || "Juan Severiano"}</span>
               <span className="block text-sm text-gray-300">@{githubUsername}</span>
             </div>
           </div>
@@ -32,7 +37,7 @@ export default function ContactCTA() {
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
-            href="mailto:contato@juanseveriano.dev"
+            href={`mailto:${user?.email || 'contato@juanseveriano.dev'}`}
             className="inline-flex items-center justify-center px-8 py-4 bg-purple-600 hover:bg-purple-700 text-white rounded-xl font-semibold transition-all transform hover:scale-105 shadow-lg"
           >
             <Mail className="w-5 h-5 inline mr-2" />

@@ -1,13 +1,18 @@
-"use client"
+'use client'
 
+import { User } from "@/api"
 import { useState, useEffect } from "react"
 
-export default function AboutMeSection() {
+interface AboutMeSectionProps {
+  user?: User
+}
+
+export default function AboutMeSection({ user }: AboutMeSectionProps) {
   const fullCode = `
 @Model
 class Me {
-  let name = "Juan"
-  let role = "Dev"
+  let name = "${user?.name || 'Juan'}"
+  let role = "${user?.role || 'Dev'}"
 }`
   const [displayedCode, setDisplayedCode] = useState("")
   const [isTypingComplete, setIsTypingComplete] = useState(false)
@@ -49,7 +54,7 @@ class Me {
         <div className="order-1 lg:order-2 text-center lg:text-left">
           <p className="text-xl lg:text-2xl text-gray-300 mb-6">Hi, My Name is</p>
           <h1 className="text-4xl lg:text-6xl font-bold mb-6">
-            <span className="block text-blue-400">Francisco Juan</span>
+            <span className="block text-blue-400">{user?.name || "Francisco Juan"}</span>
           </h1>
           <p className="text-xl lg:text-2xl text-gray-300 mb-6">I'm a Front-end/Mobile Developer</p>
           <div className="text-gray-300 space-y-4 text-lg">
