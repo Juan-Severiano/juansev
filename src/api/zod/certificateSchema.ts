@@ -6,11 +6,11 @@
 import { z } from 'zod'
 
 export const certificateSchema = z.object({
-  id: z.string().optional(),
+  id: z.string().uuid().optional(),
   title: z.string().optional(),
   description: z.string().optional(),
   platform: z.string().optional(),
-  url: z.string().optional(),
+  url: z.string().url().optional(),
   workload: z.number().int().optional(),
   createdAt: z.string().datetime().optional(),
   updatedAt: z.string().datetime().optional(),

@@ -17,7 +17,7 @@ export type CreateCertificateDto = {
    */
   platform: string
   /**
-   * @type string
+   * @type string, uri
    */
   url: string
   /**

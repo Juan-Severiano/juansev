@@ -3,15 +3,15 @@
  * Do not edit manually.
  */
 
-import { certificateSchema } from './certificateSchema.ts'
-import { createCertificateDtoSchema } from './createCertificateDtoSchema.ts'
+import { certificateSchema } from './certificateSchema'
+import { createCertificateDtoSchema } from './createCertificateDtoSchema'
 import { z } from 'zod'
 
 /**
- * @description Certificado criado
+ * @description Certificate created
  */
-export const postCertificates200Schema = z.lazy(() => certificateSchema)
+export const postCertificates201Schema = z.lazy(() => certificateSchema)
 
 export const postCertificatesMutationRequestSchema = z.lazy(() => createCertificateDtoSchema)
 
-export const postCertificatesMutationResponseSchema = z.lazy(() => postCertificates200Schema)
+export const postCertificatesMutationResponseSchema = z.lazy(() => postCertificates201Schema)

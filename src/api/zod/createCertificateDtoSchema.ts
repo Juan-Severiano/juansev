@@ -9,6 +9,6 @@ export const createCertificateDtoSchema = z.object({
   title: z.string(),
   description: z.string(),
   platform: z.string(),
-  url: z.string(),
+  url: z.string().url(),
   workload: z.number().int(),
 })

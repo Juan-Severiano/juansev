@@ -1,0 +1,1 @@
+{"type":"object","properties":{"github":{"type":"string","format":"uri"},"figma":{"type":"string","format":"uri"},"publicUrl":{"type":"string","format":"uri"}},"x-readme-ref-name":"UpdateLinkDto"}

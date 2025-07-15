@@ -3,21 +3,22 @@
  * Do not edit manually.
  */
 
-import type { CreateCertificateDto } from './CreateCertificateDto.ts'
+import type { Certificate } from './Certificate'
+import type { UpdateCertificateDto } from './UpdateCertificateDto'
 
 export type PatchCertificatesIdPathParams = {
   /**
-   * @type string
+   * @type string, uuid
    */
   id: string
 }
 
 /**
- * @description Certificado atualizado
+ * @description Certificate updated
  */
-export type PatchCertificatesId200 = any
+export type PatchCertificatesId200 = Certificate
 
-export type PatchCertificatesIdMutationRequest = CreateCertificateDto
+export type PatchCertificatesIdMutationRequest = UpdateCertificateDto
 
 export type PatchCertificatesIdMutationResponse = PatchCertificatesId200
 

@@ -3,15 +3,15 @@
  * Do not edit manually.
  */
 
-import { certificateSchema } from './certificateSchema.ts'
+import { certificateSchema } from './certificateSchema'
 import { z } from 'zod'
 
 export const getCertificatesIdPathParamsSchema = z.object({
-  id: z.string(),
+  id: z.string().uuid(),
 })
 
 /**
- * @description Certificado
+ * @description Certificate found
  */
 export const getCertificatesId200Schema = z.lazy(() => certificateSchema)
 

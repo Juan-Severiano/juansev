@@ -3,6 +3,13 @@
  * Do not edit manually.
  */
 
+export const createUserDtoRoleEnum = {
+  owner: 'owner',
+  commun: 'commun',
+} as const
+
+export type CreateUserDtoRoleEnum = (typeof createUserDtoRoleEnum)[keyof typeof createUserDtoRoleEnum]
+
 export type CreateUserDto = {
   /**
    * @type string
@@ -17,11 +24,11 @@ export type CreateUserDto = {
    */
   password: string
   /**
-   * @type string | undefined
+   * @type string, email
    */
-  email?: string
+  email: string
   /**
    * @type string
    */
-  role: string
+  role: CreateUserDtoRoleEnum
 }

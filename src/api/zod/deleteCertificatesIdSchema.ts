@@ -6,11 +6,11 @@
 import { z } from 'zod'
 
 export const deleteCertificatesIdPathParamsSchema = z.object({
-  id: z.string(),
+  id: z.string().uuid(),
 })
 
 /**
- * @description Certificado deletado
+ * @description Certificate deleted
  */
 export const deleteCertificatesId200Schema = z.any()
 

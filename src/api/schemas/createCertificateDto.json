@@ -1,1 +1,1 @@
-{"type":"object","required":["title","description","platform","url","workload"],"properties":{"title":{"type":"string"},"description":{"type":"string"},"platform":{"type":"string"},"url":{"type":"string"},"workload":{"type":"integer"}},"x-readme-ref-name":"CreateCertificateDto"}
+{"type":"object","properties":{"title":{"type":"string"},"description":{"type":"string"},"platform":{"type":"string"},"url":{"type":"string","format":"uri"},"workload":{"type":"integer"}},"required":["title","description","platform","url","workload"],"x-readme-ref-name":"CreateCertificateDto"}

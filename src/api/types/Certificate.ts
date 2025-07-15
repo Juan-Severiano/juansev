@@ -5,7 +5,7 @@
 
 export type Certificate = {
   /**
-   * @type string | undefined
+   * @type string | undefined, uuid
    */
   id?: string
   /**
@@ -21,7 +21,7 @@ export type Certificate = {
    */
   platform?: string
   /**
-   * @type string | undefined
+   * @type string | undefined, uri
    */
   url?: string
   /**

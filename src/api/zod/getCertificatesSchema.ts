@@ -3,12 +3,22 @@
  * Do not edit manually.
  */
 
-import { certificateSchema } from './certificateSchema.ts'
+import { certificateSchema } from './certificateSchema'
 import { z } from 'zod'
 
+export const getCertificatesQueryParamsSchema = z.object({
+  page: z.coerce.number().int().default(1),
+  limit: z.coerce.number().int().default(10),
+})
+
 /**
- * @description Lista de certificados
+ * @description A paginated list of certificates
  */
-export const getCertificates200Schema = z.array(z.lazy(() => certificateSchema))
+export const getCertificates200Schema = z.object({
+  data: z.array(z.lazy(() => certificateSchema)).optional(),
+  page: z.number().int().optional(),
+  limit: z.number().int().optional(),
+  next: z.boolean().optional(),
+})
 
 export const getCertificatesQueryResponseSchema = z.lazy(() => getCertificates200Schema)

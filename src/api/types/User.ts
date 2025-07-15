@@ -3,9 +3,16 @@
  * Do not edit manually.
  */
 
+export const userRoleEnum = {
+  owner: 'owner',
+  commun: 'commun',
+} as const
+
+export type UserRoleEnum = (typeof userRoleEnum)[keyof typeof userRoleEnum]
+
 export type User = {
   /**
-   * @type string | undefined
+   * @type string | undefined, uuid
    */
   id?: string
   /**
@@ -17,13 +24,13 @@ export type User = {
    */
   name?: string
   /**
-   * @type string | undefined
+   * @type string | undefined, email
    */
   email?: string
   /**
    * @type string | undefined
    */
-  role?: string
+  role?: UserRoleEnum
   /**
    * @type string | undefined, date-time
    */

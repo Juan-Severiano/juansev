@@ -3,17 +3,13 @@
  * Do not edit manually.
  */
 
-import type { CreateLinksDto } from './CreateLinksDto.ts'
+import type { CreateLinkDto } from './CreateLinkDto'
 
 export type CreateProjectDto = {
   /**
    * @type string
    */
   name: string
-  /**
-   * @type string
-   */
-  slug: string
   /**
    * @type string
    */
@@ -27,11 +23,11 @@ export type CreateProjectDto = {
    */
   skills: string[]
   /**
-   * @type string | undefined
-   */
-  companyId?: string
-  /**
    * @type object
    */
-  links: CreateLinksDto
+  links: CreateLinkDto
+  /**
+   * @type string | undefined, uuid
+   */
+  companyId?: string
 }

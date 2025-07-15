@@ -3,15 +3,14 @@
  * Do not edit manually.
  */
 
-import { createLinksDtoSchema } from './createLinksDtoSchema.ts'
+import { createLinkDtoSchema } from './createLinkDtoSchema'
 import { z } from 'zod'
 
 export const createProjectDtoSchema = z.object({
   name: z.string(),
-  slug: z.string(),
   shortDescription: z.string(),
   description: z.string(),
   skills: z.array(z.string()),
-  companyId: z.string().optional(),
-  links: z.lazy(() => createLinksDtoSchema),
+  links: z.lazy(() => createLinkDtoSchema),
+  companyId: z.string().uuid().optional(),
 })

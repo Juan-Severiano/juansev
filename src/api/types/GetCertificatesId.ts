@@ -3,17 +3,17 @@
  * Do not edit manually.
  */
 
-import type { Certificate } from './Certificate.ts'
+import type { Certificate } from './Certificate'
 
 export type GetCertificatesIdPathParams = {
   /**
-   * @type string
+   * @type string, uuid
    */
   id: string
 }
 
 /**
- * @description Certificado
+ * @description Certificate found
  */
 export type GetCertificatesId200 = Certificate
 

@@ -3,16 +3,47 @@
  * Do not edit manually.
  */
 
-import type { Certificate } from './Certificate.ts'
+import type { Certificate } from './Certificate'
+
+export type GetCertificatesQueryParams = {
+  /**
+   * @default 1
+   * @type integer | undefined
+   */
+  page?: number
+  /**
+   * @default 10
+   * @type integer | undefined
+   */
+  limit?: number
+}
 
 /**
- * @description Lista de certificados
+ * @description A paginated list of certificates
  */
-export type GetCertificates200 = Certificate[]
+export type GetCertificates200 = {
+  /**
+   * @type array | undefined
+   */
+  data?: Certificate[]
+  /**
+   * @type integer | undefined
+   */
+  page?: number
+  /**
+   * @type integer | undefined
+   */
+  limit?: number
+  /**
+   * @type boolean | undefined
+   */
+  next?: boolean
+}
 
 export type GetCertificatesQueryResponse = GetCertificates200
 
 export type GetCertificatesQuery = {
   Response: GetCertificates200
+  QueryParams: GetCertificatesQueryParams
   Errors: any
 }

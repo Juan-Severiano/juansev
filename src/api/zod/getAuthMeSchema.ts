@@ -3,11 +3,17 @@
  * Do not edit manually.
  */
 
+import { userSchema } from './userSchema'
 import { z } from 'zod'
 
 /**
- * @description Usuário autenticado
+ * @description User info
  */
-export const getAuthMe200Schema = z.any()
+export const getAuthMe200Schema = z.lazy(() => userSchema)
+
+/**
+ * @description Unauthorized
+ */
+export const getAuthMe401Schema = z.any()
 
 export const getAuthMeQueryResponseSchema = z.lazy(() => getAuthMe200Schema)

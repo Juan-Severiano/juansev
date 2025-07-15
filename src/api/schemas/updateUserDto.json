@@ -1,0 +1,1 @@
+{"type":"object","properties":{"username":{"type":"string"},"name":{"type":"string"},"password":{"type":"string"},"email":{"type":"string","format":"email"},"role":{"type":"string","enum":["owner","commun"]}},"x-readme-ref-name":"UpdateUserDto"}

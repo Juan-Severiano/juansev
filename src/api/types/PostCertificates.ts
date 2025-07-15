@@ -3,20 +3,20 @@
  * Do not edit manually.
  */
 
-import type { Certificate } from './Certificate.ts'
-import type { CreateCertificateDto } from './CreateCertificateDto.ts'
+import type { Certificate } from './Certificate'
+import type { CreateCertificateDto } from './CreateCertificateDto'
 
 /**
- * @description Certificado criado
+ * @description Certificate created
  */
-export type PostCertificates200 = Certificate
+export type PostCertificates201 = Certificate
 
 export type PostCertificatesMutationRequest = CreateCertificateDto
 
-export type PostCertificatesMutationResponse = PostCertificates200
+export type PostCertificatesMutationResponse = PostCertificates201
 
 export type PostCertificatesMutation = {
-  Response: PostCertificates200
+  Response: PostCertificates201
   Request: PostCertificatesMutationRequest
   Errors: any
 }

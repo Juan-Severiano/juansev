@@ -3,18 +3,19 @@
  * Do not edit manually.
  */
 
-import { createCertificateDtoSchema } from './createCertificateDtoSchema.ts'
+import { certificateSchema } from './certificateSchema'
+import { updateCertificateDtoSchema } from './updateCertificateDtoSchema'
 import { z } from 'zod'
 
 export const patchCertificatesIdPathParamsSchema = z.object({
-  id: z.string(),
+  id: z.string().uuid(),
 })
 
 /**
- * @description Certificado atualizado
+ * @description Certificate updated
  */
-export const patchCertificatesId200Schema = z.any()
+export const patchCertificatesId200Schema = z.lazy(() => certificateSchema)
 
-export const patchCertificatesIdMutationRequestSchema = z.lazy(() => createCertificateDtoSchema)
+export const patchCertificatesIdMutationRequestSchema = z.lazy(() => updateCertificateDtoSchema)
 
 export const patchCertificatesIdMutationResponseSchema = z.lazy(() => patchCertificatesId200Schema)

@@ -9,6 +9,6 @@ export const createUserDtoSchema = z.object({
   username: z.string(),
   name: z.string(),
   password: z.string(),
-  email: z.string().optional(),
-  role: z.string(),
+  email: z.string().email(),
+  role: z.enum(['owner', 'commun']),
 })

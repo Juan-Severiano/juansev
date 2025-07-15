@@ -3,13 +3,19 @@
  * Do not edit manually.
  */
 
-import { loginAuthDTOSchema } from './loginAuthDTOSchema.ts'
+import { authResultSchema } from './authResultSchema'
+import { loginAuthDTOSchema } from './loginAuthDTOSchema'
 import { z } from 'zod'
 
 /**
- * @description Token JWT e usuário
+ * @description Successful authentication
  */
-export const postAuthLogin200Schema = z.any()
+export const postAuthLogin200Schema = z.lazy(() => authResultSchema)
+
+/**
+ * @description Unauthorized
+ */
+export const postAuthLogin401Schema = z.any()
 
 export const postAuthLoginMutationRequestSchema = z.lazy(() => loginAuthDTOSchema)
 

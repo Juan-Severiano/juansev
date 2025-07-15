@@ -5,7 +5,7 @@
 
 export type LoginAuthDTO = {
   /**
-   * @type string
+   * @type string, email
    */
   email: string
   /**

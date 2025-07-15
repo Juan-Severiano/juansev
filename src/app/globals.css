@@ -1,4 +1,19 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@keyframes star-float {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(var(--tw-translate-x, 0), var(--tw-translate-y, 0));
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
 
 :root {
   --background: #ffffff;

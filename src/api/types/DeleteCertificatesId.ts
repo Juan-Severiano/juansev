@@ -5,13 +5,13 @@
 
 export type DeleteCertificatesIdPathParams = {
   /**
-   * @type string
+   * @type string, uuid
    */
   id: string
 }
 
 /**
- * @description Certificado deletado
+ * @description Certificate deleted
  */
 export type DeleteCertificatesId200 = any
 

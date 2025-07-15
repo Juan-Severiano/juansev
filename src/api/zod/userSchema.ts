@@ -6,11 +6,11 @@
 import { z } from 'zod'
 
 export const userSchema = z.object({
-  id: z.string().optional(),
+  id: z.string().uuid().optional(),
   username: z.string().optional(),
   name: z.string().optional(),
-  email: z.string().optional(),
-  role: z.string().optional(),
+  email: z.string().email().optional(),
+  role: z.enum(['owner', 'commun']).optional(),
   createdAt: z.string().datetime().optional(),
   updatedAt: z.string().datetime().optional(),
 })

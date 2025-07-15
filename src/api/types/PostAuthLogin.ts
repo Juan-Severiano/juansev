@@ -3,12 +3,18 @@
  * Do not edit manually.
  */
 
-import type { LoginAuthDTO } from './LoginAuthDTO.ts'
+import type { AuthResult } from './AuthResult'
+import type { LoginAuthDTO } from './LoginAuthDTO'
 
 /**
- * @description Token JWT e usuário
+ * @description Successful authentication
  */
-export type PostAuthLogin200 = any
+export type PostAuthLogin200 = AuthResult
+
+/**
+ * @description Unauthorized
+ */
+export type PostAuthLogin401 = any
 
 export type PostAuthLoginMutationRequest = LoginAuthDTO
 
@@ -17,5 +23,5 @@ export type PostAuthLoginMutationResponse = PostAuthLogin200
 export type PostAuthLoginMutation = {
   Response: PostAuthLogin200
   Request: PostAuthLoginMutationRequest
-  Errors: any
+  Errors: PostAuthLogin401
 }

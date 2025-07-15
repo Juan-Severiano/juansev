@@ -3,14 +3,21 @@
  * Do not edit manually.
  */
 
+import type { User } from './User'
+
 /**
- * @description Usuário autenticado
+ * @description User info
  */
-export type GetAuthMe200 = any
+export type GetAuthMe200 = User
+
+/**
+ * @description Unauthorized
+ */
+export type GetAuthMe401 = any
 
 export type GetAuthMeQueryResponse = GetAuthMe200
 
 export type GetAuthMeQuery = {
   Response: GetAuthMe200
-  Errors: any
+  Errors: GetAuthMe401
 }
