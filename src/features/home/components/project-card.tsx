@@ -39,12 +39,6 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           <span className="text-blue-400 hover:text-blue-300 transition-colors flex items-center gap-1">
             Ver Detalhes <ExternalLink className="w-4 h-4" />
           </span>
-          {/* Optional: GitHub link directly on card if desired */}
-          {/* {project.linksId && getLinksById(project.linksId)?.github && (
-            <a href={getLinksById(project.linksId)?.github} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
-              <Github className="w-5 h-5" />
-            </a>
-          )} */}
         </div>
       </div>
     </Link>

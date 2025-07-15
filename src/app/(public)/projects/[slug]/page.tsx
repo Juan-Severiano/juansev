@@ -1,17 +1,19 @@
 import { notFound } from "next/navigation"
 import Link from "next/link"
 import { Github, ExternalLink, ArrowLeft, Building2, Code } from "lucide-react"
-import { getCompanyById, getLinksById, getProjectBySlug } from "@/assets/skills"
+import { getProjectBySlug as getProjectBySlugService } from "@/api/services/projectService"
+import { getLinkById as getLinkByIdService } from "@/api/services/linkService"
+import { getCompanyById as getCompanyByIdService } from "@/api/services/companyService"
 
 export default async function ProjectDetailPage({ params }: { params: Promise<{ slug: string }> }) {
-  const project = getProjectBySlug((await params).slug)
+  const project = await getProjectBySlugService((await params).slug)
 
   if (!project) {
     notFound() // Renderiza a página 404 do Next.js se o projeto não for encontrado
   }
 
-  const projectLinks = project.linksId ? getLinksById(project.linksId) : null
-  const projectCompany = project.companyId ? getCompanyById(project.companyId) : null
+  const projectLinks = project.linksId ? await getLinkByIdService(project.linksId) : null
+  const projectCompany = project.companyId ? await getCompanyByIdService(project.companyId) : null
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-violet-900 text-white relative overflow-hidden pt-24 pb-16">

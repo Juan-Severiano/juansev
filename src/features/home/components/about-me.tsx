@@ -1,6 +1,6 @@
 'use client'
 
-import { User } from "@/api"
+import { User } from "@/api/types"
 import { useState, useEffect } from "react"
 
 interface AboutMeSectionProps {

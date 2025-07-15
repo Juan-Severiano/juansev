@@ -4,7 +4,7 @@ import { useState } from "react"
 import { Award, ExternalLink, FileText } from "lucide-react"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
-import { Certificate } from "@/api"
+import { Certificate } from "@/api/types"
 
 interface CertificationsSectionProps {
   certifications: Certificate[]

@@ -1,32 +1,26 @@
-"use client"
+'use client'
 
-import AboutMeSection from "../components/about-me";
-import SkillsSection from "../components/skills";
-import {
-  mockProjects,
-  skills,
-  tools,
-} from "@/assets/skills";
-import CertificationsSection from "../components/certification";
-import ContactCTA from "../components/contact";
-import ProjectsSection from "../components/projects";
-import { useGetCertificates, useGetUsersUsernameUsername } from "@/api";
+import { skills, tools } from "@/assets/skills"
+import AboutMeSection from "../components/about-me"
+import CertificationsSection from "../components/certification"
+import ContactCTA from "../components/contact"
+import ProjectsSection from "../components/projects"
+import SkillsSection from "../components/skills"
+import { useGetAllCertificates } from '@/api/hooks/useCertificates';
+import { useGetAllProjects } from '@/api/hooks/useProjects';
 
 export function HomePage() {
-  const { data: projects } = { data: mockProjects };
-  const { data: certificatesData } = useGetCertificates();
-  const { data: userData } = useGetUsersUsernameUsername("Juan-Severiano");
-
-  const certificates = certificatesData?.data?.data || [];
+  const { data: projects } = useGetAllProjects()
+  const { data: certificates } = useGetAllCertificates()
 
   return (
     <>
       <AboutMeSection />
-      <ProjectsSection projects={projects} />
+      {projects && <ProjectsSection projects={projects} />}
       <SkillsSection skills={skills} />
       <SkillsSection skills={tools} />
-      <CertificationsSection certifications={certificates} />
+      {certificates && <CertificationsSection certifications={certificates} />}
       <ContactCTA />
     </>
-  );
+  )
 }

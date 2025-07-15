@@ -1,6 +1,6 @@
 'use client'
 
-import { User } from "@/api"
+import { User } from "@/api/types"
 import { Mail, Linkedin, Github } from "lucide-react"
 import Link from "next/link"
 
@@ -53,7 +53,7 @@ export default function ContactCTA({ user }: ContactCTAProps) {
             LinkedIn
           </Link>
           <Link
-            href={`https://github.com/${githubUsername}`} // Link para o seu perfil do GitHub
+            href={`https://github.com/${githubUsername}`}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center px-8 py-4 bg-gray-900/40 backdrop-blur-sm text-white rounded-xl font-semibold border border-white/10 hover:border-purple-400/30 transition-all transform hover:scale-105"

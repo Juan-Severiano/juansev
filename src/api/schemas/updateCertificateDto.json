@@ -1,1 +1,0 @@
-{"type":"object","properties":{"title":{"type":"string"},"description":{"type":"string"},"platform":{"type":"string"},"url":{"type":"string","format":"uri"},"workload":{"type":"integer"}},"x-readme-ref-name":"UpdateCertificateDto"}

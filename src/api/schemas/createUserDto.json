@@ -1,1 +1,0 @@
-{"type":"object","properties":{"username":{"type":"string"},"name":{"type":"string"},"password":{"type":"string"},"email":{"type":"string","format":"email"},"role":{"type":"string","enum":["owner","commun"]}},"required":["username","name","password","email","role"],"x-readme-ref-name":"CreateUserDto"}
